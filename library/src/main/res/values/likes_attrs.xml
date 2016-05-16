@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="likes_mode" format="enum">
+        <enum name="disabled" value="0" />
+        <enum name="enabled" value="1" />
+    </attr>
+    <attr name="likes_drawable" format="reference" />
+    <attr name="likes_drawableWidth" format="dimension" />
+    <attr name="likes_drawableHeight" format="dimension" />
+    <attr name="likes_animationDuration" format="integer" />
+    <attr name="likes_produceInterval" format="integer" />
+    <attr name="likes_tintMode" format="enum">
+        <enum name="off" value="0" />
+        <enum name="on_sequence" value="1" />
+        <enum name="on_random" value="2" />
+    </attr>
+    <attr name="likes_tintColors" format="reference" />
+
+    <declare-styleable name="LikesLinearLayout">
+        <attr name="likes_mode" />
+        <attr name="likes_drawable" />
+        <attr name="likes_drawableWidth"  />
+        <attr name="likes_drawableHeight"/>
+        <attr name="likes_animationDuration" />
+        <attr name="likes_produceInterval" />
+        <attr name="likes_tintMode" />
+        <attr name="likes_tintColors" />
+    </declare-styleable>
+
+    <declare-styleable name="LikesFrameLayout">
+        <attr name="likes_mode" />
+        <attr name="likes_drawable" />
+        <attr name="likes_drawableWidth"  />
+        <attr name="likes_drawableHeight"/>
+        <attr name="likes_animationDuration" />
+        <attr name="likes_produceInterval" />
+        <attr name="likes_tintMode" />
+        <attr name="likes_tintColors" />
+    </declare-styleable>
+
+    <declare-styleable name="LikesRelativeLayout">
+        <attr name="likes_mode" />
+        <attr name="likes_drawable" />
+        <attr name="likes_drawableWidth"  />
+        <attr name="likes_drawableHeight"/>
+        <attr name="likes_animationDuration" />
+        <attr name="likes_produceInterval" />
+        <attr name="likes_tintMode" />
+        <attr name="likes_tintColors" />
+    </declare-styleable>
+</resources>

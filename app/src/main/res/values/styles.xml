@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LikeButton">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="likes_mode">enabled</item>
+    </style>
+
+    <style name="LikeButton.Favorite">
+        <item name="android:src">@drawable/ic_favorite</item>
+        <item name="android:tint">@color/colorAccent</item>
+        <item name="likes_drawable">@drawable/ic_favorite_normal</item>
+        <item name="likes_tintMode">on_sequence</item>
+        <item name="likes_tintColors">@array/drawable_colors</item>
+    </style>
+
+    <style name="LikeButton.Grade">
+        <item name="android:src">@drawable/ic_grade</item>
+        <item name="android:tint">@color/colorAccent</item>
+        <item name="likes_drawable">@drawable/ic_grade_normal</item>
+        <item name="likes_tintMode">on_random</item>
+        <item name="likes_tintColors">@array/drawable_colors</item>
+    </style>
+
+    <style name="LikeButton.Stars">
+        <item name="android:src">@drawable/ic_stars</item>
+        <item name="android:tint">@color/colorAccent</item>
+        <item name="likes_drawable">@drawable/ic_stars_colored</item>
+    </style>
+
+</resources>
