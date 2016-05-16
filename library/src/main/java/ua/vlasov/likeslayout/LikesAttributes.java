@@ -194,6 +194,14 @@ class LikesAttributes {
     }
 
     /**
+     * Check if drawable is set.
+     * @return true if drawable is set, false otherwise
+     */
+    public boolean hasDrawable() {
+        return mDrawable != null;
+    }
+
+    /**
      * Get tint colors array.
      * @return tint colors array
      */
@@ -306,6 +314,18 @@ class LikesAttributes {
             return mTintColors;
         }
         return defaultAttributes.getTintColors();
+    }
+
+    /**
+     * Check if drawable is set or default value exists.
+     * @param defaultAttributes default attributes
+     * @return true if drawable is set, false otherwise
+     */
+    public boolean hasDrawable(@NonNull LikesAttributes defaultAttributes) {
+        if (mDrawable != null) {
+            return true;
+        }
+        return defaultAttributes.hasDrawable();
     }
 
     /*

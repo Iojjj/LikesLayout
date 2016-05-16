@@ -146,14 +146,14 @@ class LikesDrawer implements View.OnTouchListener {
 
         private final LikesAttributes mAttributes;
         private final float mCx, mCy;
-        private final int mViewId;
+        private final View mView;
         private boolean isCancelled;
 
-        public Producer(@NonNull LikesAttributes attributes, @NonNull View v) {
+        public Producer(@NonNull LikesAttributes attributes, @NonNull View view) {
             mAttributes = attributes;
-            mViewId = v.getId();
-            mCx = v.getLeft() + v.getWidth() / 2f;
-            mCy = v.getTop() + v.getHeight() / 2f;
+            mView = view;
+            mCx = view.getLeft() + view.getWidth() / 2f;
+            mCy = view.getTop() + view.getHeight() / 2f;
         }
 
         @Override
@@ -161,7 +161,8 @@ class LikesDrawer implements View.OnTouchListener {
             if (isCancelled) {
                 return;
             }
-            startDrawing(mViewId);
+            startDrawing(mView.getId());
+            mLikesLayout.onLikeProduced(mView);
             mUiHandler.postDelayed(this, mAttributes.getProduceInterval(mDefaultAttributes));
         }
 

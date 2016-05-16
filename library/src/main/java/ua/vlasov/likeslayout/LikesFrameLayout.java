@@ -16,10 +16,10 @@ import android.widget.FrameLayout;
  */
 public class LikesFrameLayout extends FrameLayout implements LikesDrawer.LikesLayout {
 
-    private OnChildTouchListener mOnChildTouchListener;
-
     @Nullable
     private LikesDrawer mLikesDrawer;
+    private LikesAttributes mDefaultAttributes;
+    private OnChildTouchListener mOnChildTouchListener;
 
     public LikesFrameLayout(Context context) {
         this(context, null);
@@ -43,8 +43,10 @@ public class LikesFrameLayout extends FrameLayout implements LikesDrawer.LikesLa
     private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
         setWillNotDraw(false);
         if (attrs != null) {
-            final LikesAttributes likesAttributes = LikesAttributes.create(context, attrs, LikesAttributes.LAYOUT_TYPE_LINEAR);
-            mLikesDrawer = new LikesDrawer(this, likesAttributes);
+            mDefaultAttributes = LikesAttributes.create(context, attrs, LikesAttributes.LAYOUT_TYPE_FRAME);
+            mLikesDrawer = new LikesDrawer(this, mDefaultAttributes);
+        } else {
+            mDefaultAttributes = LikesAttributes.empty();
         }
     }
 
@@ -75,7 +77,7 @@ public class LikesFrameLayout extends FrameLayout implements LikesDrawer.LikesLa
     public void addView(View child, int index, ViewGroup.LayoutParams params) {
         super.addView(child, index, params);
         LayoutParams layoutParams = (LayoutParams) child.getLayoutParams();
-        if (layoutParams.mAttributes.isLikesModeEnabled()) {
+        if (layoutParams.mAttributes.isLikesModeEnabled() && layoutParams.mAttributes.hasDrawable(mDefaultAttributes)) {
             child.setOnTouchListener(mLikesDrawer);
         }
     }
