@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="likes_mode" format="enum">
         <enum name="disabled" value="0" />
@@ -12,12 +12,12 @@
     <attr name="likes_produceInterval" format="integer" />
     <attr name="likes_tintMode" format="enum">
         <enum name="off" value="0" />
-        <enum name="on_sequence" value="1" />
+        <enum name="on_successively" value="1" />
         <enum name="on_random" value="2" />
     </attr>
     <attr name="likes_tintColors" format="reference" />
 
-    <declare-styleable name="LikesLinearLayout">
+    <declare-styleable name="LikesLinearLayout" tools:ignore="ResourceName">
         <attr name="likes_mode" />
         <attr name="likes_drawable" />
         <attr name="likes_drawableWidth"  />
@@ -28,7 +28,7 @@
         <attr name="likes_tintColors" />
     </declare-styleable>
 
-    <declare-styleable name="LikesFrameLayout">
+    <declare-styleable name="LikesFrameLayout" tools:ignore="ResourceName">
         <attr name="likes_mode" />
         <attr name="likes_drawable" />
         <attr name="likes_drawableWidth"  />
@@ -39,7 +39,7 @@
         <attr name="likes_tintColors" />
     </declare-styleable>
 
-    <declare-styleable name="LikesRelativeLayout">
+    <declare-styleable name="LikesRelativeLayout" tools:ignore="ResourceName">
         <attr name="likes_mode" />
         <attr name="likes_drawable" />
         <attr name="likes_drawableWidth"  />

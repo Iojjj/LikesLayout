@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context="ua.vlasov.likes_layout.MainActivity">
 
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        />
+
     <ua.vlasov.likeslayout.LikesLinearLayout
         android:id="@+id/likes_layout"
         android:layout_width="match_parent"
@@ -13,8 +20,9 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:gravity="bottom|center_horizontal"
+        android:paddingBottom="16dp"
         app:likes_animationDuration="1200"
-        app:likes_tintMode="on_sequence"
+        app:likes_tintMode="on_successively"
         app:likes_tintColors="@array/drawable_colors"
         >
 
@@ -31,6 +39,7 @@
             android:id="@+id/btn_grade"
             style="@style/LikeButton.Grade"
             app:likes_produceInterval="200"
+            app:likes_tintMode="on_random"
             />
 
 

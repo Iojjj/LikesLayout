@@ -21,16 +21,12 @@
         <item name="android:src">@drawable/ic_favorite</item>
         <item name="android:tint">@color/colorAccent</item>
         <item name="likes_drawable">@drawable/ic_favorite_normal</item>
-        <item name="likes_tintMode">on_sequence</item>
-        <item name="likes_tintColors">@array/drawable_colors</item>
     </style>
 
     <style name="LikeButton.Grade">
         <item name="android:src">@drawable/ic_grade</item>
         <item name="android:tint">@color/colorAccent</item>
         <item name="likes_drawable">@drawable/ic_grade_normal</item>
-        <item name="likes_tintMode">on_random</item>
-        <item name="likes_tintColors">@array/drawable_colors</item>
     </style>
 
     <style name="LikeButton.Stars">
