@@ -45,7 +45,7 @@ There are three implementations of LikesLayout: **LikesFrameLayout**, **LikesLin
 There are the list of available attributes:
 
 | Attribute name | Applicable to LikesLayout? | Can be overridden by child? | Description | Default value |
-|--|--|--|--|--|
+| --- | --- | --- | --- | --- |
 | likes_animationDuration | yes | yes | Animation duration in milliseconds. | 1200 |
 | likes_drawable | yes | yes | Drawable that will be drawn when user presses view. | n/a |
 | likes_drawableWidth | yes | yes | Custom drawable width. | 0 |
