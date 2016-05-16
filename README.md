@@ -1,3 +1,7 @@
+# Likes Layout
+![Likes Layout Demo](/images/demo.gif)
+
+
 ## Setup and usage
 
 To include this library to your project add dependency in **build.gradle** file:
