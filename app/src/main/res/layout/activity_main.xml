@@ -52,8 +52,8 @@
             style="@style/LikeButton.Stars"
             app:likes_tintMode="off"
             app:likes_animationDuration="2500"
-            app:likes_drawableWidth="24dp"
-            app:likes_drawableHeight="24dp"
+            app:likes_drawableWidth="48dp"
+            app:likes_drawableHeight="48dp"
             />
 
     </ua.vlasov.likeslayout.LikesLinearLayout>

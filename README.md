@@ -42,7 +42,7 @@ There are three implementations of LikesLayout: **LikesFrameLayout**, **LikesLin
 </ua.vlasov.likeslayout.LikesLinearLayout>   
 ```
 
-There are the list of available attributes:
+There is the list of available attributes:
 
 | Attribute name | Applicable to LikesLayout? | Can be overridden by child? | Description | Default value |
 | --- | --- | --- | --- | --- |
