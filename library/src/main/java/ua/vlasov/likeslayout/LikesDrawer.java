@@ -28,14 +28,14 @@ class LikesDrawer implements View.OnTouchListener {
     private final SparseArray<DrawingTaskProducer> mProducers;
     private final List<DrawingTask> mDrawingTasks;
     private final LikesAttributes mDefaultAttributes;
-    private final LikesLayout mLikesLayout;
+    private final LikesLayoutInternal mLikesLayout;
     private final Handler mUiHandler;
     private final Interpolator mInterpolator;
     private final ValueAnimator.AnimatorUpdateListener mUpdateListener;
     private final Random mRandom;
     private final SparseArray<Integer> mTintColorIndexes;
 
-    public LikesDrawer(@NonNull LikesLayout likesLayout, @NonNull LikesAttributes defaultAttributes) {
+    public LikesDrawer(@NonNull LikesLayoutInternal likesLayout, @NonNull LikesAttributes defaultAttributes) {
         mDefaultAttributes = defaultAttributes;
         mLikesLayout = likesLayout;
         mUiHandler = new Handler(Looper.getMainLooper());
@@ -80,7 +80,6 @@ class LikesDrawer implements View.OnTouchListener {
 
     private class DrawingTask {
 
-        private final LikesAttributes mAttributes;
         private final Drawable mDrawable;
         private final PositionAnimator mPositionAnimator;
         private final DrawableAnimator mDrawableAnimator;
@@ -88,7 +87,6 @@ class LikesDrawer implements View.OnTouchListener {
 
         public DrawingTask(LikesAttributes attributes, float cx, float cy, int viewId) {
             mPositions = new float[2];
-            mAttributes = attributes;
             mDrawable = attributes.getDrawable(mDefaultAttributes).getConstantState().newDrawable().mutate();
             final float halfW = attributes.getDrawableWidth(mDefaultAttributes) / 2;
             final float halfH = attributes.getDrawableHeight(mDefaultAttributes) / 2;
@@ -117,10 +115,10 @@ class LikesDrawer implements View.OnTouchListener {
                     }
                 }
             }
-            mPositionAnimator = new SinPositionAnimator();
+            mPositionAnimator = attributes.getPositionAnimatorFactory(mDefaultAttributes).newInstance();
             mPositionAnimator.initialize(cx, cy, mLikesLayout.getWidth(), mLikesLayout.getHeight(),
                     attributes, mDefaultAttributes);
-            mDrawableAnimator = new ScaleDrawableAnimator();
+            mDrawableAnimator = attributes.getDrawableAnimatorFactory(mDefaultAttributes).newInstance();
             mDrawableAnimator.initialize(mLikesLayout.getWidth(), mLikesLayout.getHeight(), attributes, mDefaultAttributes);
 
         }
@@ -186,19 +184,5 @@ class LikesDrawer implements View.OnTouchListener {
             });
             animator.start();
         }
-    }
-
-    interface LikesLayout extends OnChildTouchListener {
-
-        void invalidate();
-
-        int getWidth();
-
-        int getHeight();
-    }
-
-    interface LikesLayoutParams {
-
-        LikesAttributes getAttributes();
     }
 }

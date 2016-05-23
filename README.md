@@ -25,6 +25,8 @@ There are three implementations of LikesLayout: **LikesFrameLayout**, **LikesLin
         app:likes_animationDuration="animationduration in milliseconds"
         app:likes_tintMode="off|on_successively|on_random"
         app:likes_tintColors="array resource id"
+        app:likes_drawableAnimator="cannonical class name"
+        app:likes_drawablePositionAnimator="cannonical class name"
         >
         
         <ImageButton
@@ -37,6 +39,8 @@ There are three implementations of LikesLayout: **LikesFrameLayout**, **LikesLin
             app:likes_animationDuration="animationduration in milliseconds"
             app:likes_tintMode="off|on_successively|on_random"
             app:likes_tintColors="array resource id"
+            app:likes_drawableAnimator="cannonical class name"
+            app:likes_drawablePositionAnimator="cannonical class name"
             />
             
 </ua.vlasov.likeslayout.LikesLinearLayout>   
@@ -48,8 +52,10 @@ There is the list of available attributes:
 | --- | --- | --- | --- | --- |
 | likes_animationDuration | yes | yes | Animation duration in milliseconds. | 1200 |
 | likes_drawable | yes | yes | Drawable that will be drawn when user presses view. | n/a |
-| likes_drawableWidth | yes | yes | Custom drawable width. | 0 |
+| likes_drawableAnimator | yes | yes | Drawable animator factory. | `@string/likes_drawable_animator_factory` |
 | likes_drawableHeight | yes | yes | Custom drawable height. | 0 |
+| likes_drawablePositionAnimator | yes | yes | Drawable's position animator factory. | `@string/likes_position_animator_factory` |
+| likes_drawableWidth | yes | yes | Custom drawable width. | 0 |
 | likes_mode | no | yes | Switch that allows to enable/disable drawing likes on touching child view. If `likes_drawable` is null, `likes_mode` will be considered as `disabled`. | disabled |
 | likes_produceInterval | yes | yes | Rate at which new likes drawables are produced in milliseconds. | 300 |
 | likes_tintMode | yes | yes | Switch that allows to enable/disable tinting drawables. | not_set |

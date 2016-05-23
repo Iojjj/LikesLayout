@@ -1,11 +1,11 @@
 package ua.vlasov.likeslayout;
 
 /**
- * Created by Alexander on 21.05.2016.
+ * Helpful utils.
  */
-class DrawUtil {
+class Utilities {
 
-    private DrawUtil() {
+    private Utilities() {
         //no instance
     }
 

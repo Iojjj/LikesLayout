@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 /**
  * LinearLayout based implementation of likes layout..
  */
-public class LikesLinearLayout extends LinearLayout implements LikesDrawer.LikesLayout {
+public class LikesLinearLayout extends LinearLayout implements LikesLayout {
 
 
     @Nullable
@@ -44,11 +44,11 @@ public class LikesLinearLayout extends LinearLayout implements LikesDrawer.Likes
     private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
         setWillNotDraw(false);
         if (attrs != null) {
-            mDefaultAttributes = LikesAttributes.create(context, attrs, LikesAttributes.LAYOUT_TYPE_LINEAR);
-            mLikesDrawer = new LikesDrawer(this, mDefaultAttributes);
+            mDefaultAttributes = LikesAttributesImpl.create(context, attrs, LikesAttributes.LAYOUT_TYPE_LINEAR);
         } else {
-            mDefaultAttributes = LikesAttributes.empty();
+            mDefaultAttributes = LikesAttributesImpl.empty();
         }
+        mLikesDrawer = new LikesDrawer(this, mDefaultAttributes);
     }
 
     @Override
@@ -120,33 +120,51 @@ public class LikesLinearLayout extends LinearLayout implements LikesDrawer.Likes
         }
     }
 
+    @NonNull
+    @Override
+    public LayoutParamsBuilder newLayoutParamsBuilder(int width, int height) {
+        return new LayoutParamsBuilder<>(new LayoutParams(width, height));
+    }
+
+    @NonNull
+    @Override
+    public LayoutParamsBuilder newLayoutParamsBuilder(@NonNull ViewGroup.LayoutParams source) {
+        return new LayoutParamsBuilder<>(new LayoutParams(source));
+    }
+
+    @NonNull
+    @Override
+    public LikesAttributes getAttributes() {
+        return mDefaultAttributes;
+    }
+
     /**
      * Per-child layout information associated with LikesLinearLayout.
      */
-    public static class LayoutParams extends LinearLayout.LayoutParams implements LikesDrawer.LikesLayoutParams {
+    public static class LayoutParams extends LinearLayout.LayoutParams implements LikesLayoutParams {
 
-        private final LikesAttributes mAttributes;
+        private final LikesAttributesImpl mAttributes;
 
         public LayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
-            mAttributes = LikesAttributes.create(c, attrs, LikesAttributes.LAYOUT_TYPE_LINEAR);
+            mAttributes = LikesAttributesImpl.create(c, attrs, LikesAttributes.LAYOUT_TYPE_LINEAR);
         }
 
         public LayoutParams(int width, int height) {
             super(width, height);
-            mAttributes = LikesAttributes.empty();
+            mAttributes = LikesAttributesImpl.empty();
         }
 
         public LayoutParams(ViewGroup.LayoutParams source) {
             super(source);
-            mAttributes = LikesAttributes.empty();
+            mAttributes = LikesAttributesImpl.empty();
         }
 
         @SuppressWarnings("IncompleteCopyConstructor")
         @TargetApi(Build.VERSION_CODES.KITKAT)
         public LayoutParams(LayoutParams source) {
             super(source);
-            mAttributes = LikesAttributes.copy(source.mAttributes);
+            mAttributes = LikesAttributesImpl.copy(source.mAttributes);
         }
 
         @Override
