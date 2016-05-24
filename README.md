@@ -113,8 +113,12 @@ mLikesLayout.produceLikes(mBtnFavorite, 3, TimeUnit.SECONDS);
 
 Make sure that child passed as an argument (`mBtnFavorite`) was added to this `mLikesLayout` (via XML or Java code). Otherwise you will get `IllegalArgumentException`.
 
+#### Custom Animations
+You can provide your own animations. There are two types of animators available: `DrawableAnimator` and `PositionAnimator`. First one used for animating drawable itself (size, alpha, etc). Second one used for animating drawable's position. Note that `PositionAnimator` animates center of drawable. 
+To use your custom animations you need to create `DrawableAnimator.Factory` or `PositionAnimator.Factory` implementations. Then you can set them via XML or in Java code.
+
 ## Restrictions 
-* If you will not set `likes_mode` or set it to `disabled`, this view will not draw any likes on touch event.
+* If you will not set `likes_mode` or set it to `disabled`, this view will not draw any likes.
 * All attributes applicable to LikesLayout will be used as default values for child with `likes_mode` set to `enabled`.
 * Custom drawable width and height will set exact size ignoring aspect ratio.
 * Likes floating from bottom to top.
