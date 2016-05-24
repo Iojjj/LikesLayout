@@ -102,9 +102,14 @@ There is the list of available attributes:
 | likes_mode | no | yes | Switch that allows to enable/disable drawing likes on touching child view. If `likes_drawable` is null, `likes_mode` will be considered as `disabled`. | disabled |
 | likes_produceInterval | yes | yes | Rate at which new likes drawables are produced in milliseconds. | 300 |
 | likes_tintMode | yes | yes | Switch that allows to enable/disable tinting drawables. | not_set |
-| likes_tintColors | yes | yes | Array of colors used for tinting drawables. If array is empty, `likes_tintMode` will be considered as `off`.| null | 
+| likes_tintColors | yes | yes | Array of colors used for tinting drawables. If array is empty, `likes_tintMode` will be considered as `off`.| null |
 
-#### Produce likes programmatically
+Where:
+
+* **ATLL** - Available to LikesLayout
+* **CBOBC** - Can be overridden by child?
+
+## Produce likes programmatically
 For this case you can use `LikesLayout.produceLikes(...)` methods, for example:
 
 ```JAVA
@@ -113,7 +118,7 @@ mLikesLayout.produceLikes(mBtnFavorite, 3, TimeUnit.SECONDS);
 
 Make sure that child passed as an argument (`mBtnFavorite`) was added to this `mLikesLayout` (via XML or Java code). Otherwise you will get `IllegalArgumentException`.
 
-#### Custom Animations
+## Custom Animations
 You can provide your own animations. There are two types of animators available: `DrawableAnimator` and `PositionAnimator`. First one used for animating drawable itself (size, alpha, etc). Second one used for animating drawable's position. Note that `PositionAnimator` animates center of drawable. 
 To use your custom animations you need to create `DrawableAnimator.Factory` or `PositionAnimator.Factory` implementations. Then you can set them via XML or in Java code.
 
