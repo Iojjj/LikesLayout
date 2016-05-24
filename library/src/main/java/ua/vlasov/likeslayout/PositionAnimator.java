@@ -74,9 +74,13 @@ public interface PositionAnimator {
     @Keep
     class DefaultFactory implements Factory {
 
+        private final FloatEvaluator mFloatEvaluator = new FloatEvaluator();
+
+        private final Random mRandom = new Random();
+
         @Override
         public PositionAnimator newInstance() {
-            return new SinPositionAnimator();
+            return new SinPositionAnimator(mFloatEvaluator, mRandom);
         }
     }
 
@@ -179,6 +183,11 @@ public interface PositionAnimator {
         public SinPositionAnimator() {
             mPositionEvaluator = new FloatEvaluator();
             mRandom = new Random();
+        }
+
+        public SinPositionAnimator(FloatEvaluator positionEvaluator, Random random) {
+            mPositionEvaluator = positionEvaluator;
+            mRandom = random;
         }
 
         @Override

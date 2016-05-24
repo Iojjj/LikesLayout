@@ -13,6 +13,15 @@
         android:padding="16dp"
         />
 
+    <Button
+        android:id="@+id/btn_produce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Produce likes for 3 seconds"
+        android:layout_below="@+id/status"
+        android:layout_marginTop="16dp"
+        />
+
     <ua.vlasov.likeslayout.LikesLinearLayout
         android:id="@+id/likes_layout"
         android:layout_width="match_parent"

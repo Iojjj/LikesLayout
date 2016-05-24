@@ -11,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * FrameLayout based implementation of likes layout.
  */
 public class LikesFrameLayout extends FrameLayout implements LikesLayout {
 
-    @Nullable
     private LikesDrawer mLikesDrawer;
     private LikesAttributes mDefaultAttributes;
     private OnChildTouchListener mOnChildTouchListener;
@@ -135,6 +136,19 @@ public class LikesFrameLayout extends FrameLayout implements LikesLayout {
     @Override
     public LikesAttributes getAttributes() {
         return mDefaultAttributes;
+    }
+
+    @Override
+    public LikesProducer produceLikes(@NonNull View childView, long timeout) {
+        if (childView.getLayoutParams() instanceof LayoutParams && childView.getParent() == this) {
+            return mLikesDrawer.newLikesProducer(childView, timeout);
+        }
+        throw new IllegalArgumentException("Child view is not a child of this LikesLayout");
+    }
+
+    @Override
+    public LikesProducer produceLikes(@NonNull View childView, long time, @NonNull TimeUnit timeUnit) {
+        return produceLikes(childView, TimeUnit.MILLISECONDS.convert(time, timeUnit));
     }
 
     /**

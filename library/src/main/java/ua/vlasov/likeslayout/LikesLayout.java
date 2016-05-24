@@ -3,7 +3,10 @@ package ua.vlasov.likeslayout;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * LikesLayout interface.
@@ -31,6 +34,27 @@ public interface LikesLayout extends LikesLayoutInternal {
 
     @NonNull
     LikesAttributes getAttributes();
+
+    /**
+     * Produce likes for a specified view for {@code timeout} milliseconds.
+     *
+     * @param childView child view of this LikesLayout
+     * @param timeout   duration of producing of likes in milliseconds
+     * @return instance of LikesProducer that allows to stop producing likes
+     * @throws IllegalArgumentException if childView is not a child of this LikesLayout
+     */
+    LikesProducer produceLikes(@NonNull View childView, long timeout);
+
+    /**
+     * Produce likes for a specified view for specified amount of time.
+     *
+     * @param childView child view of this LikesLayout
+     * @param time      duration of producing of likes
+     * @param timeUnit  time units
+     * @return instance of LikesProducer that allows to stop producing likes
+     * @throws IllegalArgumentException if childView is not a child of this LikesLayout
+     */
+    LikesProducer produceLikes(@NonNull View childView, long time, @NonNull TimeUnit timeUnit);
 
     class LayoutParamsBuilder<T extends ViewGroup.LayoutParams & LikesLayoutParams> {
 

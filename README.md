@@ -1,4 +1,7 @@
 # Likes Layout
+
+LikesLayout is an implementation of layout that can draw likes similar to [Periscope app](https://play.google.com/store/apps/details?id=tv.periscope.android).
+
 ![Likes Layout Demo](/images/demo.gif)
 
 
@@ -12,7 +15,7 @@ dependencies {
 }
 ```
 
-There are three implementations of LikesLayout: **LikesFrameLayout**, **LikesLinearLayout**, **LikesRelativeLayout**.
+There are three implementations of `LikesLayout` interface: **LikesFrameLayout**, **LikesLinearLayout**, **LikesRelativeLayout**. You can add them to your view via XML or in Java code.
 
 ```XML
 <ua.vlasov.likeslayout.LikesLinearLayout
@@ -46,6 +49,46 @@ There are three implementations of LikesLayout: **LikesFrameLayout**, **LikesLin
 </ua.vlasov.likeslayout.LikesLinearLayout>   
 ```
 
+or
+
+```JAVA
+// create new LikesLayout
+LikesLinearLayout likesLinearLayout = new LikesLinearLayout(getContext());
+likesLinearLayout.setId(R.id.likes_layout);
+// set layout height
+final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        (int) (getResources().getDisplayMetrics().density * 250));
+likesLinearLayout.setLayoutParams(params);
+likesLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+// make sure your buttons located at the bottom of LikesLayout
+likesLinearLayout.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+likesLinearLayout.setPadding(0, 0, 0, (int) (getResources().getDisplayMetrics().density * 16));
+// get attributes object that will store default values
+likesLinearLayout.getAttributes().setAnimationDuration(1200);
+likesLinearLayout.getAttributes().setTintMode(LikesAttributes.TINT_MODE_ON_SUCCESSIVELY);
+likesLinearLayout.getAttributes().setTintColors(colors);
+
+// it's time to add a button
+ImageButton button = new ImageButton(getContext(), null, R.style.LikeButton_Grade);
+button.setId(R.id.btn_grade);
+button.setImageResource(R.drawable.ic_grade);
+DrawableCompat.setTint(button.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorAccent));
+// you can create layout params for your button using LikesLayout.newLayoutParamsBuilder() method
+// then using a builder you can set all necessary attributes values
+final ViewGroup.LayoutParams params = likesLinearLayout
+        .newLayoutParamsBuilder(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        .setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_grade_normal))
+        .setAnimationDuration(3000)
+        .setProduceInterval(500)
+        .setPositionAnimatorFactory(new CustomPositionAnimatorFactory2())
+        // don't forget to enable likes mode :)
+        .setLikesMode(LikesAttributes.LIKES_MODE_ENABLED)
+        .build();
+// set parameters and add button to LikesLayout
+button.setLayoutParams(params);
+likesLinearLayout.addView(button);
+```
+
 There is the list of available attributes:
 
 | Attribute name | ATLL | CBOBC | Description | Default value |
@@ -61,7 +104,16 @@ There is the list of available attributes:
 | likes_tintMode | yes | yes | Switch that allows to enable/disable tinting drawables. | not_set |
 | likes_tintColors | yes | yes | Array of colors used for tinting drawables. If array is empty, `likes_tintMode` will be considered as `off`.| null | 
 
-###### Restrictions: 
+#### Produce likes programmatically
+For this case you can use `LikesLayout.produceLikes(...)` methods, for example:
+
+```JAVA
+mLikesLayout.produceLikes(mBtnFavorite, 3, TimeUnit.SECONDS);
+```
+
+Make sure that child passed as an argument (`mBtnFavorite`) was added to this `mLikesLayout` (via XML or Java code). Otherwise you will get `IllegalArgumentException`.
+
+## Restrictions 
 * If you will not set `likes_mode` or set it to `disabled`, this view will not draw any likes on touch event.
 * All attributes applicable to LikesLayout will be used as default values for child with `likes_mode` set to `enabled`.
 * Custom drawable width and height will set exact size ignoring aspect ratio.
