@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <public type="string" name="likes_app_name" />
+    <public type="integer" name="likes_default_animation_duration" />
+    <public type="integer" name="likes_default_produce_interval" />
 </resources>

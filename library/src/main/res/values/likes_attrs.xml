@@ -16,6 +16,8 @@
         <enum name="on_random" value="2" />
     </attr>
     <attr name="likes_tintColors" format="reference" />
+    <attr name="likes_drawableAnimator" format="string|reference" />
+    <attr name="likes_drawablePositionAnimator" format="string|reference" />
 
     <declare-styleable name="LikesLinearLayout" tools:ignore="ResourceName">
         <attr name="likes_mode" />
@@ -26,6 +28,8 @@
         <attr name="likes_produceInterval" />
         <attr name="likes_tintMode" />
         <attr name="likes_tintColors" />
+        <attr name="likes_drawableAnimator" />
+        <attr name="likes_drawablePositionAnimator" />
     </declare-styleable>
 
     <declare-styleable name="LikesFrameLayout" tools:ignore="ResourceName">
@@ -37,6 +41,8 @@
         <attr name="likes_produceInterval" />
         <attr name="likes_tintMode" />
         <attr name="likes_tintColors" />
+        <attr name="likes_drawableAnimator" />
+        <attr name="likes_drawablePositionAnimator" />
     </declare-styleable>
 
     <declare-styleable name="LikesRelativeLayout" tools:ignore="ResourceName">
@@ -48,5 +54,7 @@
         <attr name="likes_produceInterval" />
         <attr name="likes_tintMode" />
         <attr name="likes_tintColors" />
+        <attr name="likes_drawableAnimator" />
+        <attr name="likes_drawablePositionAnimator" />
     </declare-styleable>
 </resources>

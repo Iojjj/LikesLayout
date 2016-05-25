@@ -45,3 +45,7 @@ captures/
 .DS_Store
 /build
 /captures
+gradle
+.idea
+gradlew
+gradlew.bat

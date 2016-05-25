@@ -1,60 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ua.vlasov.likes_layout.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        />
-
-    <ua.vlasov.likeslayout.LikesLinearLayout
-        android:id="@+id/likes_layout"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:gravity="bottom|center_horizontal"
-        android:paddingBottom="16dp"
-        app:likes_animationDuration="1200"
-        app:likes_tintMode="on_successively"
-        app:likes_tintColors="@array/drawable_colors"
-        >
-
-        <ImageButton
-            android:id="@+id/btn_favorite"
-            style="@style/LikeButton.Favorite"
-            />
-
-        <Space
-            android:layout_width="16dp"
-            android:layout_height="match_parent"/>
-
-        <ImageButton
-            android:id="@+id/btn_grade"
-            style="@style/LikeButton.Grade"
-            app:likes_produceInterval="200"
-            app:likes_tintMode="on_random"
-            />
-
-
-        <Space
-            android:layout_width="16dp"
-            android:layout_height="match_parent"/>
-
-        <ImageButton
-            android:id="@+id/btn_stars"
-            style="@style/LikeButton.Stars"
-            app:likes_tintMode="off"
-            app:likes_animationDuration="2500"
-            app:likes_drawableWidth="24dp"
-            app:likes_drawableHeight="24dp"
-            />
-
-    </ua.vlasov.likeslayout.LikesLinearLayout>
-</RelativeLayout>
+</FrameLayout>

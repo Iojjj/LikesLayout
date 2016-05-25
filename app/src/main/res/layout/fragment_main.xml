@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        />
+
+    <Button
+        android:id="@+id/btn_produce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Produce likes for 3 seconds"
+        android:layout_below="@+id/status"
+        android:layout_marginTop="16dp"
+        />
+
+    <com.github.iojjj.likeslayout.LikesLinearLayout
+        android:id="@+id/likes_layout"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="16dp"
+        app:likes_animationDuration="1200"
+        app:likes_tintMode="on_successively"
+        app:likes_tintColors="@array/drawable_colors"
+        >
+
+        <ImageButton
+            android:id="@+id/btn_favorite"
+            style="@style/LikeButton.Favorite"
+            />
+
+        <Space
+            android:layout_width="24dp"
+            android:layout_height="match_parent"/>
+
+        <ImageButton
+            android:id="@+id/btn_grade"
+            style="@style/LikeButton.Grade"
+            app:likes_produceInterval="200"
+            app:likes_tintMode="on_random"
+            />
+
+
+        <Space
+            android:layout_width="24dp"
+            android:layout_height="match_parent"/>
+
+        <ImageButton
+            android:id="@+id/btn_stars"
+            style="@style/LikeButton.Stars"
+            app:likes_tintMode="off"
+            app:likes_animationDuration="2500"
+            app:likes_drawableWidth="48dp"
+            app:likes_drawableHeight="48dp"
+            />
+
+    </com.github.iojjj.likeslayout.LikesLinearLayout>
+</RelativeLayout>

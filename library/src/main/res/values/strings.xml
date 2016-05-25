@@ -1,3 +1,4 @@
 <resources>
-    <string name="likes_app_name">Likes Layout</string>
+    <string name="likes_drawable_animator_factory">com.github.iojjj.likeslayout.DrawableAnimator$DefaultFactory</string>
+    <string name="likes_position_animator_factory">com.github.iojjj.likeslayout.PositionAnimator$DefaultFactory</string>
 </resources>
