@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ua.vlasov.likes_layout.MainActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/status"
@@ -22,7 +22,7 @@
         android:layout_marginTop="16dp"
         />
 
-    <ua.vlasov.likeslayout.LikesLinearLayout
+    <com.github.iojjj.likeslayout.LikesLinearLayout
         android:id="@+id/likes_layout"
         android:layout_width="match_parent"
         android:layout_height="350dp"
@@ -65,5 +65,5 @@
             app:likes_drawableHeight="48dp"
             />
 
-    </ua.vlasov.likeslayout.LikesLinearLayout>
+    </com.github.iojjj.likeslayout.LikesLinearLayout>
 </RelativeLayout>

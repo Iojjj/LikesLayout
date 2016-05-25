@@ -6,7 +6,7 @@
         <item>From Java</item>
     </string-array>
 
-    <string name="custom_drawable_animator_factory">ua.vlasov.likes_layout.CustomDrawableAnimatorFactory</string>
-    <string name="custom_position_animator_factory">ua.vlasov.likes_layout.CustomPositionAnimatorFactory</string>
-    <string name="custom_position_animator_factory2">ua.vlasov.likes_layout.CustomPositionAnimatorFactory2</string>
+    <string name="custom_drawable_animator_factory">com.github.iojjj.likeslayout.CustomDrawableAnimatorFactory</string>
+    <string name="custom_position_animator_factory">com.github.iojjj.likeslayout.CustomPositionAnimatorFactory</string>
+    <string name="custom_position_animator_factory2">com.github.iojjj.likeslayout.CustomPositionAnimatorFactory2</string>
 </resources>

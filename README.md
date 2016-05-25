@@ -18,7 +18,7 @@ dependencies {
 There are three implementations of `LikesLayout` interface: **LikesFrameLayout**, **LikesLinearLayout**, **LikesRelativeLayout**. You can add them to your view via XML or in Java code.
 
 ```XML
-<ua.vlasov.likeslayout.LikesLinearLayout
+<com.github.iojjj.likeslayout.LikesLinearLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
         app:likes_drawable="drawable resource id"
@@ -46,7 +46,7 @@ There are three implementations of `LikesLayout` interface: **LikesFrameLayout**
             app:likes_drawablePositionAnimator="cannonical class name"
             />
             
-</ua.vlasov.likeslayout.LikesLinearLayout>   
+</com.github.iojjj.likeslayout.LikesLinearLayout>   
 ```
 
 or

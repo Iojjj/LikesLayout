@@ -17,15 +17,11 @@ android {
     buildToolsVersion "24.0.0-rc3"
 
     defaultConfig {
-        applicationId "ua.vlasov.likes_layout"
+        applicationId "com.github.iojjj.likeslayout.app"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-    }
-    dexOptions {
-        maxProcessCount 2
-        javaMaxHeapSize "2g"
     }
     buildTypes {
         release {
