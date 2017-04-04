@@ -129,6 +129,7 @@ To use your custom animations you need to create `DrawableAnimator.Factory` or `
 * Likes floating from bottom to top.
 
 <br />
+
 ## Changelog
 
 | Version | Changes                         |
@@ -136,13 +137,14 @@ To use your custom animations you need to create `DrawableAnimator.Factory` or `
 | v.1.0.0 | First public release            |
 
 <br />
+
 ## Support
 
 You can support this library by creating a pull request with bug fixes and/or new features on `develop` branch. Any pull requests on `master` branch will be removed. 
 
 <br />
+
 ## License
-* * *
     The MIT License (MIT)
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
